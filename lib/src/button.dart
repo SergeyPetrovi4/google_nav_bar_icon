@@ -6,11 +6,11 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 class Button extends StatefulWidget {
   const Button({
     Key? key,
-    this.icon,
+    this.iconColor,
+    this.iconActiveColor,
+    this.iconImage,
     this.iconSize,
     this.leading,
-    this.iconActiveColor,
-    this.iconColor,
     this.text,
     this.gap,
     this.color,
@@ -32,12 +32,10 @@ class Button extends StatefulWidget {
     this.textSize,
   }) : super(key: key);
 
-  final IconData? icon;
+  final ImageProvider? iconImage;
   final double? iconSize;
   final Text? text;
   final Widget? leading;
-  final Color? iconActiveColor;
-  final Color? iconColor;
   final Color? color;
   final Color? rippleColor;
   final Color? hoverColor;
@@ -56,6 +54,8 @@ class Button extends StatefulWidget {
   final List<BoxShadow>? shadow;
   final GnavStyle? style;
   final double? textSize;
+  final Color? iconColor;
+  final Color? iconActiveColor;
 
   @override
   _ButtonState createState() => _ButtonState();
@@ -71,8 +71,8 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
     _expanded = widget.active!;
 
     expandController =
-        AnimationController(vsync: this, duration: widget.duration)
-          ..addListener(() => setState(() {}));
+    AnimationController(vsync: this, duration: widget.duration)
+      ..addListener(() => setState(() {}));
   }
 
   @override
@@ -86,10 +86,10 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     var curveValue = expandController
         .drive(CurveTween(
-            curve: _expanded ? widget.curve! : widget.curve!.flipped))
+        curve: _expanded ? widget.curve! : widget.curve!.flipped))
         .value;
     var _colorTween =
-        ColorTween(begin: widget.iconColor, end: widget.iconActiveColor);
+    ColorTween(begin: widget.iconColor, end: widget.iconActiveColor);
     var _colorTweenAnimation = _colorTween.animate(CurvedAnimation(
         parent: expandController,
         curve: _expanded ? Curves.easeInExpo : Curves.easeOutCirc));
@@ -101,8 +101,16 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
       expandController.forward();
 
     Widget icon = widget.leading ??
-        Icon(widget.icon,
-            color: _colorTweenAnimation.value, size: widget.iconSize);
+        ColorFiltered(
+          colorFilter: ColorFilter.mode(
+              _colorTweenAnimation.value ?? Colors.transparent, BlendMode.srcIn),
+          child: Image(
+            image: widget.iconImage!,
+            width: widget.iconSize,
+            height: widget.iconSize,
+          ),
+        );
+
 
     return Material(
       type: MaterialType.transparency,
@@ -126,10 +134,10 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
               color: _expanded
                   ? widget.color!.withOpacity(0)
                   : widget.debug!
-                      ? Colors.red
-                      : widget.gradient != null
-                          ? Colors.white
-                          : widget.color,
+                  ? Colors.red
+                  : widget.gradient != null
+                  ? Colors.white
+                  : widget.color,
               borderRadius: widget.borderRadius,
             ),
             child: FittedBox(
@@ -156,11 +164,11 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
                                           child: Opacity(
                                               opacity: _expanded
                                                   ? pow(expandController.value,
-                                                      13) as double
+                                                  13) as double
                                                   : expandController
-                                                      .drive(CurveTween(
-                                                          curve: Curves.easeIn))
-                                                      .value,
+                                                  .drive(CurveTween(
+                                                  curve: Curves.easeIn))
+                                                  .value,
                                               child: Padding(
                                                 padding: EdgeInsets.only(
                                                     left: widget.gap! +
@@ -168,14 +176,14 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
                                                         (8 *
                                                             expandController
                                                                 .drive(CurveTween(
-                                                                    curve: Curves
-                                                                        .easeOutSine))
+                                                                curve: Curves
+                                                                    .easeOutSine))
                                                                 .value),
                                                     right: 8 *
                                                         expandController
                                                             .drive(CurveTween(
-                                                                curve: Curves
-                                                                    .easeOutSine))
+                                                            curve: Curves
+                                                                .easeOutSine))
                                                             .value),
                                                 child: widget.text,
                                               )),
@@ -195,7 +203,6 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
                           child: Text(
                             widget.text!.data!,
                             style: TextStyle(
-                              color: _colorTweenAnimation.value,
                               fontSize: widget.textSize ?? 16,
                             ),
                           ),

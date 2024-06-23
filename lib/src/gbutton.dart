@@ -9,10 +9,8 @@ class GButton extends StatefulWidget {
   final bool? debug;
   final bool? haptic;
   final double? gap;
-  final Color? iconColor;
   final Color? rippleColor;
   final Color? hoverColor;
-  final Color? iconActiveColor;
   final Color? textColor;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
@@ -20,7 +18,7 @@ class GButton extends StatefulWidget {
   final double? iconSize;
   final Function? onPressed;
   final String text;
-  final IconData icon;
+  final ImageProvider? iconImage;
   final Color? backgroundColor;
   final Duration? duration;
   final Curve? curve;
@@ -33,17 +31,17 @@ class GButton extends StatefulWidget {
   final String? semanticLabel;
   final GnavStyle? style;
   final double? textSize;
+  final Color? iconColor;
+  final Color? iconActiveColor;
 
   const GButton({
     Key? key,
     this.active,
     this.haptic,
     this.backgroundColor,
-    required this.icon,
-    this.iconColor,
+    required this.iconImage,
     this.rippleColor,
     this.hoverColor,
-    this.iconActiveColor,
     this.text = '',
     this.textColor,
     this.padding,
@@ -64,6 +62,8 @@ class GButton extends StatefulWidget {
     this.semanticLabel,
     this.style = GnavStyle.google,
     this.textSize,
+    this.iconColor,
+    this.iconActiveColor,
   }) : super(key: key);
 
   @override
@@ -96,12 +96,12 @@ class _GButtonState extends State<GButton> {
         color: widget.backgroundColor,
         rippleColor: widget.rippleColor,
         hoverColor: widget.hoverColor,
+        iconColor: widget.iconColor,
+        iconActiveColor: widget.iconActiveColor,
         gradient: widget.backgroundGradient,
         curve: widget.curve,
         leading: widget.leading,
-        iconActiveColor: widget.iconActiveColor,
-        iconColor: widget.iconColor,
-        icon: widget.icon,
+        iconImage: widget.iconImage,
         text: Text(
           widget.text,
           style: widget.textStyle ??

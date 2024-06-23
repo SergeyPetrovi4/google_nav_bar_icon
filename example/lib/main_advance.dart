@@ -77,72 +77,72 @@ class _TabPageState extends State<TabPage> {
               padding: const EdgeInsets.symmetric(horizontal: 3.0, vertical: 3),
               child: GNav(
                 tabs: [
-                  GButton(
-                    gap: gap,
-                    iconActiveColor: Colors.purple,
-                    iconColor: Colors.black,
-                    textColor: Colors.purple,
-                    backgroundColor: Colors.purple.withOpacity(.2),
-                    iconSize: 24,
-                    padding: padding,
-                    icon: LineIcons.home,
-                    text: 'Home',
-                  ),
-                  GButton(
-                    gap: gap,
-                    iconActiveColor: Colors.pink,
-                    iconColor: Colors.black,
-                    textColor: Colors.pink,
-                    backgroundColor: Colors.pink.withOpacity(.2),
-                    iconSize: 24,
-                    padding: padding,
-                    icon: LineIcons.heart,
-                    leading: selectedIndex == 1 || badge == 0
-                        ? null
-                        : Badge(
-                            badgeColor: Colors.red.shade100,
-                            elevation: 0,
-                            position: BadgePosition.topEnd(top: -12, end: -12),
-                            badgeContent: Text(
-                              badge.toString(),
-                              style: TextStyle(color: Colors.red.shade900),
-                            ),
-                            child: Icon(
-                              LineIcons.heart,
-                              color: selectedIndex == 1
-                                  ? Colors.pink
-                                  : Colors.black,
-                            ),
-                          ),
-                  ),
-                  GButton(
-                    gap: gap,
-                    iconActiveColor: Colors.amber[600],
-                    iconColor: Colors.black,
-                    textColor: Colors.amber[600],
-                    backgroundColor: Colors.amber[600]!.withOpacity(.2),
-                    iconSize: 24,
-                    padding: padding,
-                    icon: LineIcons.search,
-                    text: 'Search',
-                  ),
-                  GButton(
-                    gap: gap,
-                    iconActiveColor: Colors.teal,
-                    iconColor: Colors.black,
-                    textColor: Colors.teal,
-                    backgroundColor: Colors.teal.withOpacity(.2),
-                    iconSize: 24,
-                    padding: padding,
-                    icon: LineIcons.user,
-                    leading: CircleAvatar(
-                      radius: 12,
-                      backgroundImage: NetworkImage(
-                        'https://sooxt98.space/content/images/size/w100/2019/01/profile.png',
-                      ),
-                    ),
-                    text: 'Sheldon',
-                  )
+                  // GButton(
+                  //   gap: gap,
+                  //   iconActiveColor: Colors.purple,
+                  //   iconColor: Colors.black,
+                  //   textColor: Colors.purple,
+                  //   backgroundColor: Colors.purple.withOpacity(.2),
+                  //   iconSize: 24,
+                  //   padding: padding,
+                  //   icon: LineIcons.home,
+                  //   text: 'Home',
+                  // ),
+                  // GButton(
+                  //   gap: gap,
+                  //   iconActiveColor: Colors.pink,
+                  //   iconColor: Colors.black,
+                  //   textColor: Colors.pink,
+                  //   backgroundColor: Colors.pink.withOpacity(.2),
+                  //   iconSize: 24,
+                  //   padding: padding,
+                  //   icon: LineIcons.heart,
+                  //   leading: selectedIndex == 1 || badge == 0
+                  //       ? null
+                  //       : Badge(
+                  //           badgeColor: Colors.red.shade100,
+                  //           elevation: 0,
+                  //           position: BadgePosition.topEnd(top: -12, end: -12),
+                  //           badgeContent: Text(
+                  //             badge.toString(),
+                  //             style: TextStyle(color: Colors.red.shade900),
+                  //           ),
+                  //           child: Icon(
+                  //             LineIcons.heart,
+                  //             color: selectedIndex == 1
+                  //                 ? Colors.pink
+                  //                 : Colors.black,
+                  //           ),
+                  //         ),
+                  // ),
+                  // GButton(
+                  //   gap: gap,
+                  //   iconActiveColor: Colors.amber[600],
+                  //   iconColor: Colors.black,
+                  //   textColor: Colors.amber[600],
+                  //   backgroundColor: Colors.amber[600]!.withOpacity(.2),
+                  //   iconSize: 24,
+                  //   padding: padding,
+                  //   icon: LineIcons.search,
+                  //   text: 'Search',
+                  // ),
+                  // GButton(
+                  //   gap: gap,
+                  //   iconActiveColor: Colors.teal,
+                  //   iconColor: Colors.black,
+                  //   textColor: Colors.teal,
+                  //   backgroundColor: Colors.teal.withOpacity(.2),
+                  //   iconSize: 24,
+                  //   padding: padding,
+                  //   icon: LineIcons.user,
+                  //   leading: CircleAvatar(
+                  //     radius: 12,
+                  //     backgroundImage: NetworkImage(
+                  //       'https://sooxt98.space/content/images/size/w100/2019/01/profile.png',
+                  //     ),
+                  //   ),
+                  //   text: 'Sheldon',
+                  // )
                 ],
                 selectedIndex: selectedIndex,
                 onTabChange: (index) {
