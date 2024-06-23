@@ -119,6 +119,7 @@ class _GNavState extends State<GNav> {
                       textStyle: t.textStyle ?? widget.textStyle,
                       text: t.text,
                       iconImage: t.iconImage,
+                      activeIconImage: t.activeIconImage,
                       haptic: widget.haptic,
                       leading: t.leading,
                       curve: widget.curve,

@@ -9,6 +9,7 @@ class Button extends StatefulWidget {
     this.iconColor,
     this.iconActiveColor,
     this.iconImage,
+    this.activeIconImage,
     this.iconSize,
     this.leading,
     this.text,
@@ -33,6 +34,7 @@ class Button extends StatefulWidget {
   }) : super(key: key);
 
   final ImageProvider? iconImage;
+  final ImageProvider? activeIconImage;
   final double? iconSize;
   final Text? text;
   final Widget? leading;
@@ -105,7 +107,8 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
           colorFilter: ColorFilter.mode(
               _colorTweenAnimation.value ?? Colors.transparent, BlendMode.srcIn),
           child: Image(
-            image: widget.iconImage!,
+            // Use iconImage if activeIconImage not set, by default its null
+            image: widget.active! ? ((widget.activeIconImage != null) ? widget.activeIconImage! : widget.iconImage!) : widget.iconImage!,
             width: widget.iconSize,
             height: widget.iconSize,
           ),
