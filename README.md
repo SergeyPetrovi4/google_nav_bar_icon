@@ -1,7 +1,6 @@
 # google_nav_bar
 
-
-<img src="https://forthebadge.com/images/badges/built-with-love.svg" height="28px" />&nbsp;&nbsp;<img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" height="28px" />&nbsp;&nbsp;<a href="https://pub.dev/packages/google_nav_bar"><img src="https://img.shields.io/pub/v/google_nav_bar.svg?style=for-the-badge" height="28px" /></a>
+# Refactored for using ImageProvider instead of IconData. Added property activeIconImage, for active icons
 
 A modern google style nav bar for flutter.
 
@@ -17,7 +16,10 @@ Add this to your package's `pubspec.yaml` file:
 ```
 ...
 dependencies:
-  google_nav_bar: ^5.0.6
+    google_nav_bar:
+      git:
+        url: https://github.com/SergeyPetrovi4/google_nav_bar_icon.git
+        ref: master
   
 ```
 
@@ -49,20 +51,14 @@ GNav(
   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5), // navigation bar padding
   tabs: [
     GButton(
-      icon: LineIcons.home,
+      iconImage: AssetImage("assets/images/home_tab_icon.png"),
+      activeIconImage: AssetImage("assets/images/home_tab_icon_filled.png"),
       text: 'Home',
     ),
     GButton(
-      icon: LineIcons.heart_o,
-      text: 'Likes',
-    ),
-    GButton(
-      icon: LineIcons.search,
-      text: 'Search',
-    ),
-    GButton(
-      icon: LineIcons.user,
-      text: 'Profile',
+      iconImage: AssetImage("assets/images/settings_tab_icon.png"),
+      activeIconImage: AssetImage("assets/images/settings_tab_icon_filled.png"),
+      text: 'Settings',
     )
   ]
 )
