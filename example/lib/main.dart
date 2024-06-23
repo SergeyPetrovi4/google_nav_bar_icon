@@ -68,28 +68,20 @@ class _ExampleState extends State<Example> {
               rippleColor: Colors.grey[300]!,
               hoverColor: Colors.grey[100]!,
               gap: 8,
-              activeColor: Colors.black,
+              activeColor: Colors.blueAccent,
               iconSize: 24,
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               duration: Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.grey[100]!,
+              tabBackgroundColor: Colors.grey[200]!,
               color: Colors.black,
               tabs: [
                 GButton(
-                  icon: LineIcons.home,
+                  iconImage: NetworkImage("https://cdn-icons-png.flaticon.com/256/900/900782.png",),
                   text: 'Home',
                 ),
                 GButton(
-                  icon: LineIcons.heart,
+                  iconImage: NetworkImage("https://cdn-icons-png.flaticon.com/256/900/900782.png",),
                   text: 'Likes',
-                ),
-                GButton(
-                  icon: LineIcons.search,
-                  text: 'Search',
-                ),
-                GButton(
-                  icon: LineIcons.user,
-                  text: 'Profile',
                 ),
               ],
               selectedIndex: _selectedIndex,

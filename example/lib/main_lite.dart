@@ -73,22 +73,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                 duration: Duration(milliseconds: 1000),
                 tabs: [
-                  GButton(
-                    icon: LineIcons.home,
-                    text: 'Home',
-                  ),
-                  GButton(
-                    icon: LineIcons.heart,
-                    text: 'Likes',
-                  ),
-                  GButton(
-                    icon: LineIcons.search,
-                    text: 'Search',
-                  ),
-                  GButton(
-                    icon: LineIcons.user,
-                    text: 'Profile',
-                  )
+                  // GButton(
+                  //   icon: LineIcons.home,
+                  //   text: 'Home',
+                  // ),
+                  // GButton(
+                  //   icon: LineIcons.heart,
+                  //   text: 'Likes',
+                  // ),
+                  // GButton(
+                  //   icon: LineIcons.search,
+                  //   text: 'Search',
+                  // ),
+                  // GButton(
+                  //   icon: LineIcons.user,
+                  //   text: 'Profile',
+                  // )
                 ],
                 selectedIndex: selectedIndex,
                 onTabChange: (index) {
