@@ -77,6 +77,7 @@ class _ExampleState extends State<Example> {
               tabs: [
                 GButton(
                   iconImage: NetworkImage("https://cdn-icons-png.flaticon.com/256/900/900782.png",),
+                  activeIconImage: NetworkImage("https://cdn-icons-png.flaticon.com/512/1076/1076744.png"),
                   text: 'Home',
                 ),
                 GButton(
